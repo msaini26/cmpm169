@@ -1,4 +1,4 @@
-# Creative Coding Template
+# CMPM 169 Creative Coding: Mansi S.
 File template for creative coding, with focus on p5.js.
 
 ## Imitate, Integrate, Innovate
