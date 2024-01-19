@@ -14,6 +14,16 @@ const VALUE2 = 2;
 let myInstance;
 let canvasContainer;
 
+// drawing variables
+var init_pattern;
+var patternWidth;
+var patternHeight;
+var patternSize = 50;
+var patternAngle = 0;
+
+var patternCount = 10;
+
+
 class MyClass {
     constructor(param1, param2) {
         this.property1 = param1;
@@ -23,6 +33,12 @@ class MyClass {
     myMethod() {
         // code to run when method is called
     }
+}
+
+// load assets before drawing assets and shapes on the canvas
+function preload() {
+    patterns = []; // initialize patterns for experiment
+    patterns.push(loadImage('assets/module_1.svg')); // load image type
 }
 
 // setup() function is called once when the program starts
@@ -41,6 +57,14 @@ function setup() {
 
     var centerHorz = windowWidth / 2;
     var centerVert = windowHeight / 2;
+
+    imageMode(CENTER);
+
+    // initialize first pattern type
+    init_pattern = patterns[0];
+    patternWidth = width / patternCount; // include number of patterns that fit within window
+    patternHeight = height / patternCount; // include number of patterns that fit within window
+    diagonalMax = sqrt(pow(width, 2) + pow(height, 2)); // pythagorean theorem; diagonal is the max distance    
 }
 
 // draw() function is called repeatedly, it's the main animation loop
@@ -50,15 +74,8 @@ function draw() {
     myInstance.myMethod();
 
     // Put drawings here
-    var centerHorz = canvasContainer.width() / 2 - 125;
-    var centerVert = canvasContainer.height() / 2 - 125;
-    fill(234, 31, 81);
-    noStroke();
-    rect(centerHorz, centerVert, 250, 250);
-    fill(255);
-    textStyle(BOLD);
-    textSize(140);
-    text("p5*", centerHorz + 10, centerVert + 200);
+    circle(20, 20, 30);
+    
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
