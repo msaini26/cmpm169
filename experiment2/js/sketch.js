@@ -68,6 +68,8 @@ function setup() {
 
   imageMode(CENTER);
 
+  // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+  // I learned how to set the initial number of lines that would fit in the window; needed to use the pythagorean theorem to determine the max number
   // initialize first pattern type
   init_pattern = patterns[0];
   patternWidth = width / patternCount; // include number of patterns that fit within window
@@ -83,6 +85,8 @@ function draw() {
 
   // Put drawings here
 
+  // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+  // I learned that I would need to use for loops to generate images along the x and y of the canvas itself. I learned the mathematics behind defining an angle of the shape itself.
   // go through all possible y values within the canvas
   for (var canvasY = 0; canvasY < patternCount; canvasY++) {
     // go through all the possible x values within the canvas
@@ -92,6 +96,8 @@ function draw() {
 
       var a = atan2(mouseY - y, mouseX - x) + patternAngle * (PI / 180); // define angle of svg shape (somewhere between 0-180)
 
+      // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+      // I learned how to define certain size modes and switch around the shapes accordingly
       // changes shape size based on given size mode
       if (pattern_size_mode == 0) {
         update_pattern_size = patternSize; // set to inital pattern size
@@ -115,6 +121,8 @@ function draw() {
         );
       }
 
+      // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+      // I learned how to create and push states with the initial steps of creating animations
       push(); // push state of shapes onto canvas
       translate(x, y); // spread objects across canvas with buffer to prevent overlapping
       rotate(a); // rotate objects based on given angle
@@ -125,6 +133,8 @@ function draw() {
   }
 }
 
+// code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+// I learned how to create different user interactions based one single key input; I plan to include more functionalities as I continue to experiment
 // keyReleased() function is called to switch options (shape style, size modes, etc)
 function keyReleased() {
   // s key will save an image of the canvas with a timestamp
@@ -148,6 +158,8 @@ function keyReleased() {
     patternHeight = height / patternSize; // set height relative to number existing
   }
 
+  // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+  // I learned how to switch images displayed by storing the patterns in an array
   // set pattern style based on key given
   if (key == "1") {
     init_pattern = patterns[0];
@@ -171,7 +183,24 @@ function keyReleased() {
     init_pattern = patterns[6];
   }
 
-  
+  // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
+  // user shifting pattern size and angle
+  // arrow keys switching options
+  if (keyCode == UP_ARROW) {
+    patternSize += 5; // make size bigger
+  }
+
+  if (keyCode == DOWN_ARROW) {
+    patternSize = max(patternSize - 5, 5); // make size smaller
+  }
+
+  if (keyCode == LEFT_ARROW) {
+    patternAngle += 5; // rotate objects clockwise
+  }
+
+  if (keyCode == RIGHT_ARROW) {
+    patternAngle -= 5; // rotate objects counter clockwise
+  }
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
