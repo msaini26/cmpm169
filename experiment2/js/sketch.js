@@ -20,8 +20,11 @@ var patternWidth;
 var patternHeight;
 var patternSize = 50;
 var patternAngle = 0;
+var diagonalMax;
+var update_pattern_size = patternSize;
 
 var patternCount = 10;
+var pattern_size_mode = 0;
 
 
 class MyClass {
@@ -84,6 +87,25 @@ function draw() {
             var y = patternHeight * canvasY + patternWidth / 2; // canvas is a square; y value of svg pattern image to add
             
             var a = atan2(mouseY - y, mouseX - x) + (patternAngle * (PI / 180)); // define angle of svg shape (somewhere between 0-180)
+
+            // changes shape size based on given size mode
+            if (pattern_size_mode == 0) {
+                update_pattern_size = patternSize; // set to inital pattern size
+            }
+            if (pattern_size_mode == 1) {
+                update_pattern_size = patternSize * 1.5 - map(dist(mouseX, mouseY, x, y), 0, 500, 5, patternSize);
+                console.log(update_pattern_size);
+            }
+            if (pattern_size_mode == 2) {
+                update_pattern_size = map(dist(mouseX, mouseY, x, y), 0, 500, 5, patternSize)
+            }
+
+            push(); // push state of shapes onto canvas
+            translate(x, y); // spread objects across canvas with buffer to prevent overlapping
+            rotate(a); // rotate objects based on given angle
+            noStroke(); // do not include a stroke on the canvas
+            image(init_pattern, 0, 0, update_pattern_size, update_pattern_size); // display images of lines
+            pop(); // remove given shape state
         }
     }
     
