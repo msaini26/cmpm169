@@ -112,10 +112,29 @@ function draw() {
 
 // keyReleased() function is called to switch options (shape style, size modes, etc)
 function keyReleased() {
-    // s key will save canvas with a timestamp
+    // s key will save an image of the canvas with a timestamp
     if (key == 's' || key == 'S') {
         saveCanvas(gd.timestamp(), 'png');
     }
+
+    // d key will change the size mode
+    if (key == 'd' || key == 'D') {
+        pattern_size_mode = (pattern_size_mode + 1) % 3;
+    }
+
+    // g key will update the pattern amount on screen with a relative width and height for the lines
+    if (key == 'g' || key == 'G') {
+        patternSize += 5; // increase number of patterns
+        // when max is reached, reduce to 10
+        if (patternSize > 18) {
+            patternSize = 11;
+        }
+        patternWidth = width / patternSize; // set width relative to number existing
+        patternHeight = height / patternSize; // set height relative to number existing
+    }
+
+    // set pattern style based on key given
+    
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
