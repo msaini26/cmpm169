@@ -77,7 +77,6 @@ function draw() {
     myInstance.myMethod();
 
     // Put drawings here
-    circle(20, 20, 30);
 
     // go through all possible y values within the canvas
     for (var canvasY = 0; canvasY < patternCount; canvasY++) {
@@ -109,6 +108,14 @@ function draw() {
         }
     }
     
+}
+
+// keyReleased() function is called to switch options (shape style, size modes, etc)
+function keyReleased() {
+    // s key will save canvas with a timestamp
+    if (key == 's' || key == 'S') {
+        saveCanvas(gd.timestamp(), 'png');
+    }
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
