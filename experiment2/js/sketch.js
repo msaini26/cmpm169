@@ -47,13 +47,15 @@ function preload() {
   patterns.push(loadImage("assets/module_5.svg")); // load image type
   patterns.push(loadImage("assets/module_6.svg")); // load image typepatterns.push(loadImage('assets/module_1.svg')); // load image type
   patterns.push(loadImage("assets/module_7.svg")); // load image type
+  // integrate experimentation
+  patterns.push(loadImage("assets/cool_shape.svg")); // generated a cool graphic using this: https://fffuel.co/ssshape/
 }
 
 // setup() function is called once when the program starts
 function setup() {
   // place our canvas, making it fit our container
   canvasContainer = $("#canvas-container");
-  let canvas = createCanvas(canvasContainer.width(), canvasContainer.height());
+  let canvas = createCanvas(canvasContainer.width(), canvasContainer.height(), WEBGL);
   canvas.parent("canvas-container");
   // resize canvas is the page is resized
   $(window).resize(function () {
@@ -129,6 +131,20 @@ function draw() {
       noStroke(); // do not include a stroke on the canvas
       image(init_pattern, 0, 0, update_pattern_size, update_pattern_size); // display images of lines
       pop(); // remove given shape state
+
+      if (key == "8") {
+        // integrate: create a 3d effect by rotating at varying angles
+        rotateX(frameCount * 0.05);
+        rotateY(-frameCount * 0.05);
+
+        // integrate: merge automatic rotation with mouse following
+        push(); // push state of shapes onto canvas
+        translate(x + 50, y + 50); // spread objects across canvas with buffer to prevent overlapping
+        rotate(-(a * 2.5)); // rotate objects based on given angle
+        noStroke(); // do not include a stroke on the canvas
+        image(init_pattern, 0, 0, update_pattern_size, update_pattern_size); // display images of lines
+        pop(); // remove given shape state
+      }
     }
   }
 }
@@ -181,6 +197,11 @@ function keyReleased() {
   }
   if (key == "7") {
     init_pattern = patterns[6];
+  }
+
+  // integrate step experimentation
+  if (key == "8") {
+    init_pattern = patterns[7];
   }
 
   // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
