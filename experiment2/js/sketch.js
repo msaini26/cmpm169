@@ -79,7 +79,7 @@ function setup() {
 
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
-  background(220);
+  background(247, 182, 116); // canvas background color
   // call a method on the instance
   myInstance.myMethod();
 
