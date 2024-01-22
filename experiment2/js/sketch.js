@@ -146,6 +146,15 @@ function draw() {
         pop(); // remove given shape state
       }
     }
+
+    // innovate: distortion effects through extreme movement
+    if (key == "1") {
+        translate(10, -70);
+        rotateY(frameCount *1500);
+        let c = cone(100, 100, 100);
+        c.translate(10, 150);
+        translate(p5.Vector.fromAngle(millis() / 1000, 40));
+    }
   }
 }
 
