@@ -134,8 +134,8 @@ function draw() {
 
       if (key == "8") {
         // integrate: create a 3d effect by rotating at varying angles
-        rotateX(frameCount * 0.05);
-        rotateY(-frameCount * 0.05);
+        rotateX(frameCount * 0.01);
+        rotateY(-frameCount * 0.01);
 
         // integrate: merge automatic rotation with mouse following
         push(); // push state of shapes onto canvas
