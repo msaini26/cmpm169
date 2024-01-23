@@ -172,6 +172,11 @@ function draw() {
       translate(p5.Vector.fromAngle(millis() / 1000, 40));
     }
   }
+
+  // innovate: background color changes
+  bg_color.levels[0] = random(1, 255);
+  bg_color.levels[1] = random(1, 255);
+  bg_color.levels[2] = random(1, 255);
 }
 
 // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
@@ -237,23 +242,5 @@ function keyReleased() {
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
   // code to run when mouse is pressed
-  bg_color.levels[0] = random(1, 255);
-  bg_color.levels[1] = random(1, 255);
-  bg_color.levels[2] = random(1, 255);
-}
 
-function mouseClicked() {
-    console.log("is mouse clicked");
-  // innovate: background color changes
-//   bg_color.levels[0] = random(1, 255);
-//   bg_color.levels[1] = random(1, 255);
-//   bg_color.levels[2] = random(1, 255);
-//   if (bg_color.levels[0] == 247 && bg_color.levels[1] == 182 && bg_color.levels[2] == 116) {
-//     bg_color = color(135, 206, 235);
-//   } else {
-//     bg_color = color(247, 182, 116)
-//   }
-
-  
- 
 }
