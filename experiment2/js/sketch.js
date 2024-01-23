@@ -33,8 +33,6 @@ let r;
 let b;
 let g;
 
-
-
 class MyClass {
   constructor(param1, param2) {
     this.property1 = param1;
@@ -84,7 +82,6 @@ function setup() {
   imageMode(CENTER);
 
   bg_color = color(247, 182, 116);
-
 
   // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
   // I learned how to set the initial number of lines that would fit in the window; needed to use the pythagorean theorem to determine the max number
@@ -173,10 +170,30 @@ function draw() {
     }
   }
 
-  // innovate: background color changes
+  // innovate: constant background color changes
   bg_color.levels[0] = random(1, 255);
   bg_color.levels[1] = random(1, 255);
   bg_color.levels[2] = random(1, 255);
+
+  // innovate: animated shapes
+  if (key == "2") {
+    for (let gen_angle = 0; gen_angle < 360; gen_angle += 20) {
+      push();
+      translate(width / 2, height / 2); // move origin to center
+      rotate(gen_angle); // rotate each by 30º
+      translate(0, 600); // then offset vertically
+      rotate(-random(1, 90)); // spin around the other way!
+      rectMode(CENTER);
+      let c = color(random(1, 255), random(1, 255), random(1, 255));
+      fill(c);
+      noStroke();
+      cone(-100, -10, 50);
+      square(-200, -20, 30);
+      ellipsoid(-50, -90, 10);
+
+      pop();
+    }
+  }
 }
 
 // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
@@ -242,5 +259,4 @@ function keyReleased() {
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
   // code to run when mouse is pressed
-
 }
