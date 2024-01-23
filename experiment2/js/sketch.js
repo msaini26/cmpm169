@@ -93,8 +93,8 @@ function draw() {
   for (var canvasY = 0; canvasY < patternCount; canvasY++) {
     // go through all the possible x values within the canvas
     for (var canvasX = 0; canvasX < patternCount; canvasX++) {
-      var x = patternWidth * canvasX + patternWidth / 2; // x value of svg pattern image to add (need to have buffer for x size of the pattern image)
-      var y = patternHeight * canvasY + patternWidth / 2; // canvas is a square; y value of svg pattern image to add
+      var x = patternWidth * canvasX + patternWidth / 2 - 300; // x value of svg pattern image to add (need to have buffer for x size of the pattern image)
+      var y = patternHeight * canvasY + patternWidth / 2 - 300; // canvas is a square; y value of svg pattern image to add
 
       var a = atan2(mouseY - y, mouseX - x) + patternAngle * (PI / 180); // define angle of svg shape (somewhere between 0-180)
 
