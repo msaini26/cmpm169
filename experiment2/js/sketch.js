@@ -25,6 +25,15 @@ var update_pattern_size = patternSize;
 
 var patternCount = 10;
 var pattern_size_mode = 0;
+let previousMouseX, previousMouseY;
+var lineX;
+var lineY;
+let bg_color;
+let r;
+let b;
+let g;
+
+
 
 class MyClass {
   constructor(param1, param2) {
@@ -55,7 +64,11 @@ function preload() {
 function setup() {
   // place our canvas, making it fit our container
   canvasContainer = $("#canvas-container");
-  let canvas = createCanvas(canvasContainer.width(), canvasContainer.height(), WEBGL);
+  let canvas = createCanvas(
+    canvasContainer.width(),
+    canvasContainer.height(),
+    WEBGL
+  );
   canvas.parent("canvas-container");
   // resize canvas is the page is resized
   $(window).resize(function () {
@@ -70,6 +83,9 @@ function setup() {
 
   imageMode(CENTER);
 
+  bg_color = color(247, 182, 116);
+
+
   // code credit (imitation step): https://editor.p5js.org/generative-design/sketches/ryklecq9Ty4
   // I learned how to set the initial number of lines that would fit in the window; needed to use the pythagorean theorem to determine the max number
   // initialize first pattern type
@@ -81,7 +97,7 @@ function setup() {
 
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
-  background(247, 182, 116); // canvas background color
+  background(bg_color); // canvas background color
   // call a method on the instance
   myInstance.myMethod();
 
@@ -132,7 +148,7 @@ function draw() {
       image(init_pattern, 0, 0, update_pattern_size, update_pattern_size); // display images of lines
       pop(); // remove given shape state
 
-      if (key == "8") {
+      if (key == "3") {
         // integrate: create a 3d effect by rotating at varying angles
         rotateX(frameCount * 0.01);
         rotateY(-frameCount * 0.01);
@@ -149,11 +165,11 @@ function draw() {
 
     // innovate: distortion effects through extreme movement
     if (key == "1") {
-        translate(10, -70);
-        rotateY(frameCount *1500);
-        let c = cone(100, 100, 100);
-        c.translate(10, 150);
-        translate(p5.Vector.fromAngle(millis() / 1000, 40));
+      translate(10, -70);
+      rotateY(frameCount * 1500);
+      let c = cone(100, 100, 100);
+      c.translate(10, 150);
+      translate(p5.Vector.fromAngle(millis() / 1000, 40));
     }
   }
 }
@@ -192,24 +208,9 @@ function keyReleased() {
   if (key == "2") {
     init_pattern = patterns[1];
   }
-  if (key == "3") {
-    init_pattern = patterns[2];
-  }
-  if (key == "4") {
-    init_pattern = patterns[3];
-  }
-  if (key == "5") {
-    init_pattern = patterns[4];
-  }
-  if (key == "6") {
-    init_pattern = patterns[5];
-  }
-  if (key == "7") {
-    init_pattern = patterns[6];
-  }
 
   // integrate step experimentation
-  if (key == "8") {
+  if (key == "3") {
     init_pattern = patterns[7];
   }
 
@@ -236,4 +237,23 @@ function keyReleased() {
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
   // code to run when mouse is pressed
+  bg_color.levels[0] = random(1, 255);
+  bg_color.levels[1] = random(1, 255);
+  bg_color.levels[2] = random(1, 255);
+}
+
+function mouseClicked() {
+    console.log("is mouse clicked");
+  // innovate: background color changes
+//   bg_color.levels[0] = random(1, 255);
+//   bg_color.levels[1] = random(1, 255);
+//   bg_color.levels[2] = random(1, 255);
+//   if (bg_color.levels[0] == 247 && bg_color.levels[1] == 182 && bg_color.levels[2] == 116) {
+//     bg_color = color(135, 206, 235);
+//   } else {
+//     bg_color = color(247, 182, 116)
+//   }
+
+  
+ 
 }
