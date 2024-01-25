@@ -14,6 +14,12 @@ const VALUE2 = 2;
 let myInstance;
 let canvasContainer;
 
+var max_particles = 200;
+var variation_one = [];
+var variation_two = [];
+var variation_three = [];
+
+
 class MyClass {
     constructor(param1, param2) {
         this.property1 = param1;
@@ -41,27 +47,54 @@ function setup() {
 
     var centerHorz = windowWidth / 2;
     var centerVert = windowHeight / 2;
+
+    background(21, 8, 50);   // background color
+
+    // imitate
+    // I am imitating the following: https://openprocessing.org/sketch/494102
+    
+
+    // generate initial particles
+    for (var i = 0; i < max_particles; i++) {
+        // TODO: define particle objects
+    }
+
 }
 
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
-    background(220);    
+    
     // call a method on the instance
     myInstance.myMethod();
 
     // Put drawings here
-    var centerHorz = canvasContainer.width() / 2 - 125;
-    var centerVert = canvasContainer.height() / 2 - 125;
-    fill(234, 31, 81);
-    noStroke();
-    rect(centerHorz, centerVert, 250, 250);
-    fill(255);
-    textStyle(BOLD);
-    textSize(140);
-    text("p5*", centerHorz + 10, centerVert + 200);
+    
+
+    // imitate
+    // I am imitating this design: https://openprocessing.org/sketch/494102
+
+    
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
     // code to run when mouse is pressed
+}
+
+/**
+ * Goal: define particle with a specified direction, speed, and angle
+ * @param {*} posX 
+ * @param {*} posY 
+ */
+// imitate: https://openprocessing.org/sketch/494102
+// learning how to initialize particle with given constraints
+function Particle(posX, posY) {
+
+    // initialize particle
+    this.position = createVector(posX, posY); // define initial position
+    this.velocity = createVector(0, 0); // initialize with no velocity
+    this.direction = createVector(0, 0); // init direction
+    this.speed = 0.4; 
+    
+    // particle movement
 }
