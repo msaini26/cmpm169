@@ -125,4 +125,7 @@ function Particle(posX, posY) {
     }
 
     // particle movement in ellipse fashion
+    this.shape_movement = function(radius) {
+        ellipse(this.position.x, this.position.y, radius, radius);
+    }
 }
