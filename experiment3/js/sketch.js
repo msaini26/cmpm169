@@ -20,6 +20,13 @@ var variation_two = [];
 var variation_three = [];
 var noise_scale = 800; // experiment with this - todo
 
+// given stuff testing
+var particles_a = [];
+var particles_b = [];
+var particles_c = [];
+var nums =200;
+var noiseScale = 800;
+
 class MyClass {
   constructor(param1, param2) {
     this.property1 = param1;
@@ -82,19 +89,19 @@ function draw() {
 
     // varation one particle design
     fill(69, 33, 124, a);
-    variation_one[i].move(); // begin drawing variation one's particle design
+    variation_one[i].movement(); // begin drawing variation one's particle design
     variation_one[i].shape_movement(r); // particle size
     variation_one[i].reach_edge(); // keep particles within boundaries
 
     // variation two particle design
     fill(7, 153, 242, a);
-    variation_two[i].move();
+    variation_two[i].movement();
     variation_two[i].shape_movement(r);
     variation_two[i].reach_edge();
 
     // variation three particle design
     fill(255, 255, 255, a);
-    variation_three[i].move();
+    variation_three[i].movement();
     variation_three[i].shape_movement(r);
     variation_three[i].reach_edge();
   }
@@ -112,26 +119,26 @@ function mousePressed() {
  */
 // imitate: https://openprocessing.org/sketch/494102
 // learning how to initialize particle with given constraints
-function Particle(posX, posY) {
+function Particle(x, y) {
   // initialize particle
   this.velocity = createVector(0, 0); // initialize with no velocity
   this.direction = createVector(0, 0); // init direction
-  this.position = createVector(posX, posY); // define initial position
+  this.position = createVector(x, y); // define initial position
   this.speed = 0.4;
 
   // particle movement
-  this.move = function() {
+  this.movement = function() {
     var particle_angle =
       noise(
-        this.position.posX / noise_scale,
-        this.position.posY / noise_scale
+        this.position.x / noise_scale,
+        this.position.y / noise_scale
       ) *
       TWO_PI *
       noise_scale;
 
     // position
-    this.direction.posX = cos(particle_angle); // start x scale with cos movement
-    this.direction.posY = sin(particle_angle); // start y scale with sin movement
+    this.direction.x = cos(particle_angle); // start x scale with cos movement
+    this.direction.y = sin(particle_angle); // start y scale with sin movement
 
     // velocity
     // velocity carries both magnitude and direction; speed in a given direction
