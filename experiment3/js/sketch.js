@@ -112,4 +112,17 @@ function Particle(posX, posY) {
         this.velocity.mult(this.speed); 
         this.position.add(this.velocity);
     }
+
+    // edge case: keep particles within boundaries
+    this.reach_edge = function() {
+        // outside left and right canvas boundaries
+        // or outside up and down canvas boundaries
+        if (this.position.x > width || this.position.x < 0 || this.position.y < 0 || this.position.y > height) {
+            // set random particle beginning point
+            this.position.x = random(50, width);
+            this.position.y = random(50, height); 
+        }
+    }
+
+    // particle movement in ellipse fashion
 }
