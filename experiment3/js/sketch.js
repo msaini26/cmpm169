@@ -106,7 +106,10 @@ function Particle(posX, posY) {
         this.direction.posY = sin(particle_angle); // start y scale with sin movement
 
         // velocity
-        
-
+        // velocity carries both magnitude and direction; speed in a given direction
+        // need to update velocity based on displacement and speed
+        this.velocity = this.direction.copy(); 
+        this.velocity.mult(this.speed); 
+        this.position.add(this.velocity);
     }
 }
