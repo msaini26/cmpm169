@@ -18,6 +18,7 @@ var max_particles = 200;
 var variation_one = [];
 var variation_two = [];
 var variation_three = [];
+var noise_scale = 800; // experiment with this - todo
 
 
 class MyClass {
@@ -97,4 +98,15 @@ function Particle(posX, posY) {
     this.speed = 0.4; 
     
     // particle movement
+    this.movement = function() {
+        var particle_angle = noise(this.position.posX/noise_scale, this.position.posY/noise_scale)* TWO_PI*noise_scale;
+
+        // position
+        this.direction.posX = cos(particle_angle); // start x scale with cos movement
+        this.direction.posY = sin(particle_angle); // start y scale with sin movement
+
+        // velocity
+        
+
+    }
 }
