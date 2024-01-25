@@ -57,7 +57,11 @@ function setup() {
 
     // generate initial particles
     for (var i = 0; i < max_particles; i++) {
-        // TODO: define particle objects
+        // define particle objects
+        variation_one[i] = new Particle(random(0, width), random(0, height));
+        variation_two[i] = new Particle(random(0, width), random(0, height));
+        variation_three[i] = new Particle(random(0, width), random(0, height));
+
     }
 
 }
@@ -73,6 +77,34 @@ function draw() {
 
     // imitate
     // I am imitating this design: https://openprocessing.org/sketch/494102
+    noStroke();
+    smooth(); // smooth edges for lines
+
+    // traverse particles
+    for (var i = 0; i < max_particles; i++) {
+
+        // particle design
+        var r = map(i, 0, max_particles, 1, 2); // define size/radius of particle
+        var a = map(i, 0, max_particles, 0, 250); // define transparency/alpha of a particle
+
+        // varation one particle design
+        fill(69, 33, 124, a);
+        variation_one[i].movement(); // begin drawing variation one's particle design
+        variation_one[i].shape_movement(r); // particle size
+        variation_one[i].reach_edge(); // keep particles within boundaries
+
+        // variation two particle design
+        fill(7,153,242,a);
+		variation_two[i].movement();
+		variation_two[i].shape_movement(r);
+		variation_two[i].reach_edge();
+
+        // variation three particle design
+        fill(255,255,255,a);
+		variation_three[i].movement();
+		variation_three[i].shape_movement(r);
+		variation_three[i].reach_edge();
+    }
 
     
 }
