@@ -18,14 +18,8 @@ var max_particles = 200;
 var variation_one = [];
 var variation_two = [];
 var variation_three = [];
-var noise_scale = 800; // experiment with this - todo
+var noise_scale; // experiment with this - todo
 
-// given stuff testing
-var particles_a = [];
-var particles_b = [];
-var particles_c = [];
-var nums =200;
-var noiseScale = 800;
 
 class MyClass {
   constructor(param1, param2) {
@@ -56,6 +50,9 @@ function setup() {
   var centerVert = windowHeight / 2;
 
   background(21, 8, 50); // background color
+
+  // integrate: randomizing noise level
+  noise_scale = random(5, 100); 
 
   // imitate
   // I am imitating the following: https://openprocessing.org/sketch/494102
