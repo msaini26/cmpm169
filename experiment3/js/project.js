@@ -18,16 +18,19 @@ class MyProjectClass {
   // define a method
   myMethod() {
     // code to run when method is called
+    
   }
 }
 
 function main() {
   // create an instance of the class
-  let myInstance = new MyProjectClass(value1, value2);
+  let myInstance = new MyBackgroundClass(1, 2);
+
+  // console.log(value1);
 
   // call a method on the instance
   myInstance.myMethod();
 }
 
 // let's get this party started - uncomment me
-//main();
+// main(); 

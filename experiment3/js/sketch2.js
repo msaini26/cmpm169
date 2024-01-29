@@ -1,14 +1,15 @@
-const VALUE1 = 1;
-const VALUE2 = 2;
+// const VALUE1 = 1;
+// const VALUE2 = 2;
 
 let palette;
 let graphics;
+let sketch;
 
 // Globals
 let myInstance;
 let canvasContainer;
 
-class MySketchClass {
+class MyBackgroundClass {
     constructor(param1, param2) {
       this.property1 = param1;
       this.property2 = param2;
@@ -30,7 +31,7 @@ function setup() {
         resizeCanvas(600, 600);
     });
     // create an instance of the class
-    myInstance = new MySketchClass(VALUE1, VALUE2);
+    myInstance = new MyBackgroundClass(this.property1, this.property2);
 
     var centerHorz = windowWidth / 2;
     var centerVert = windowHeight / 2;
@@ -53,6 +54,8 @@ function setup() {
 		graphics.ellipse(x, y, w, h);
 	}
 	noLoop();
+
+    sketch = new MyClass(1, 2);
 }
 
 function draw() {
@@ -155,8 +158,12 @@ function draw() {
 		drawingContext.shadowColor = color(0, 0, 0, 33);
 		drawingContext.shadowBlur = width / 10;
 		image(g, 0, 0);
+
 	}
 	blendMode(ADD);
 	image(graphics, 0, 0);
 	blendMode(BLEND);
+
+    // sketch.draw();
+    sketch.display();
 }
