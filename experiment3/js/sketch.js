@@ -20,11 +20,14 @@ var variation_two = [];
 var variation_three = [];
 var noise_scale;
 
+let c1, c2, c3;
+
 
 class MyClass {
-  constructor(x, y) {
+  constructor(x, y, colors) {
     this.x = x;
     this.y = y;
+    this.colors = colors;
     // integrate: randomizing noise level
     noise_scale = random(5, 100); 
     // generate initial particles
@@ -34,6 +37,11 @@ class MyClass {
       variation_two[i] = new Particle(random(0, width), random(0, height));
       variation_three[i] = new Particle(random(0, width), random(0, height));
     }
+
+    c1 = random(this.colors);
+    c2 = random(this.colors);
+    c3 = random(this.colors);
+
     loop();
   }
 
@@ -46,21 +54,22 @@ class MyClass {
       // particle design
       var r = map(i, 0, max_particles, 1, 2); // define size/radius of particle
       var a = map(i, 0, max_particles, 0, 250); // define transparency/alpha of a particle
+
   
       // varation one particle design
-      fill(69, 33, 124, a);
+      fill(c1);
       variation_one[i].movement(); // begin drawing variation one's particle design
       variation_one[i].shape_movement(r); // particle size
       variation_one[i].reach_edge(); // keep particles within boundaries
   
       // variation two particle design
-      fill(7, 153, 242, a);
+      fill(c2);
       variation_two[i].movement();
       variation_two[i].shape_movement(r);
       variation_two[i].reach_edge();
   
       // variation three particle design
-      fill(255, 255, 255, a);
+      fill(c3);
       variation_three[i].movement();
       variation_three[i].shape_movement(r);
       variation_three[i].reach_edge();

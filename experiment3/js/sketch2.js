@@ -1,6 +1,3 @@
-// const VALUE1 = 1;
-// const VALUE2 = 2;
-
 let palette;
 let graphics;
 let sketch;
@@ -38,10 +35,6 @@ function setup() {
     var centerHorz = windowWidth / 2;
     var centerVert = windowHeight / 2;
 
-
-	// createCanvas(800, 800);
-
-	// colorMode(HSB, 360, 100, 100, 100);
 	angleMode(DEGREES);
 	graphics = createGraphics(width, height);
 	graphics.colorMode(HSB, 360, 100, 100, 100);
@@ -57,7 +50,6 @@ function setup() {
 	}
 	noLoop();
 
-    sketch = new MyClass(1, 2);
 }
 
 function display() {
@@ -65,6 +57,8 @@ function display() {
 	clear();
 	background(240);
 	palette = shuffle(chromotome.get().colors);
+    sketch = new MyClass(0, 0, palette);
+    console.log(palette);
 
 	let angle = int(random(12)) * 360 / 12;
 	let iMax = palette.length;
