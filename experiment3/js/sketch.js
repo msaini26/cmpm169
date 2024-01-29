@@ -18,7 +18,7 @@ var max_particles = 200;
 var variation_one = [];
 var variation_two = [];
 var variation_three = [];
-var noise_scale; // experiment with this - todo
+var noise_scale;
 
 
 class MyClass {
@@ -43,6 +43,7 @@ function setup() {
     console.log("Resizing...");
     resizeCanvas(canvasContainer.width(), canvasContainer.height());
   });
+
   // create an instance of the class
   myInstance = new MyClass(VALUE1, VALUE2);
 
@@ -52,7 +53,7 @@ function setup() {
   background(21, 8, 50); // background color
 
   // integrate: randomizing noise level
-  noise_scale = random(5, 100); 
+  noise_scale = random(5, 100);
 
   // imitate
   // I am imitating the following: https://openprocessing.org/sketch/494102
@@ -71,6 +72,7 @@ function draw() {
   // call a method on the instance
   myInstance.myMethod();
 
+
   // Put drawings here
 
   // imitate
@@ -81,8 +83,9 @@ function draw() {
   // traverse particles
   for (var i = 0; i < max_particles; i++) {
     // particle design
-    var r = map(i, 0, max_particles, 1, 2); // define size/radius of particle
-    var a = map(i, 0, max_particles, 0, 250); // define transparency/alpha of a particle
+    // integrate: changing particle radius, transparency, and design
+    var r = map(i, 0, max_particles, 1, 20); // define size/radius of particle
+    var a = map(i, 0, max_particles, 0, 150); // define transparency/alpha of a particle
 
     // varation one particle design
     fill(69, 33, 124, a);
@@ -124,12 +127,9 @@ function Particle(x, y) {
   this.speed = 0.4;
 
   // particle movement
-  this.movement = function() {
+  this.movement = function () {
     var particle_angle =
-      noise(
-        this.position.x / noise_scale,
-        this.position.y / noise_scale
-      ) *
+      noise(this.position.x / noise_scale, this.position.y / noise_scale) *
       TWO_PI *
       noise_scale;
 
@@ -146,7 +146,7 @@ function Particle(x, y) {
   };
 
   // edge case: keep particles within boundaries
-  this.reach_edge = function() {
+  this.reach_edge = function () {
     // outside left and right canvas boundaries
     // or outside up and down canvas boundaries
     if (
