@@ -18,7 +18,7 @@ var max_particles = 200;
 var variation_one = [];
 var variation_two = [];
 var variation_three = [];
-var noise_scale; // experiment with this - todo
+var noise_scale;
 
 
 class MyClass {
@@ -174,12 +174,9 @@ function Particle(x, y) {
   this.speed = 0.4;
 
   // particle movement
-  this.movement = function() {
+  this.movement = function () {
     var particle_angle =
-      noise(
-        this.position.x / noise_scale,
-        this.position.y / noise_scale
-      ) *
+      noise(this.position.x / noise_scale, this.position.y / noise_scale) *
       TWO_PI *
       noise_scale;
 
@@ -196,7 +193,7 @@ function Particle(x, y) {
   };
 
   // edge case: keep particles within boundaries
-  this.reach_edge = function() {
+  this.reach_edge = function () {
     // outside left and right canvas boundaries
     // or outside up and down canvas boundaries
     if (
