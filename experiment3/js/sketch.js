@@ -25,29 +25,19 @@ class MyClass {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-      // integrate: randomizing noise level
-  noise_scale = random(5, 100); 
-
-  // imitate
-  // I am imitating the following: https://openprocessing.org/sketch/494102
-
-  // generate initial particles
-  for (var i = 0; i < max_particles; i++) {
-    // define particle objects
-    variation_one[i] = new Particle(random(0, width), random(0, height));
-    variation_two[i] = new Particle(random(0, width), random(0, height));
-    variation_three[i] = new Particle(random(0, width), random(0, height));
-  }
+    // integrate: randomizing noise level
+    noise_scale = random(5, 100); 
+    // generate initial particles
+    for (var i = 0; i < max_particles; i++) {
+      // define particle objects
+      variation_one[i] = new Particle(random(0, width), random(0, height));
+      variation_two[i] = new Particle(random(0, width), random(0, height));
+      variation_three[i] = new Particle(random(0, width), random(0, height));
+    }
+    loop();
   }
 
   display() {
-    // call a method on the instance
-    // myInstance.myMethod();
-  
-    // Put drawings here
-  
-    // imitate
-    // I am imitating this design: https://openprocessing.org/sketch/494102
     noStroke();
     smooth(); // smooth edges for lines
   
@@ -77,86 +67,6 @@ class MyClass {
     }
   }
 
-  // myMethod() {
-  //   // code to run when method is called
-  // }
-}
-
-// setup() function is called once when the program starts
-// function setup() {
-//   // place our canvas, making it fit our container
-//   // canvasContainer = $("#canvas-container");
-//   // let canvas = createCanvas(canvasContainer.width(), canvasContainer.height());
-//   // canvas.parent("canvas-container");
-//   // // resize canvas is the page is resized
-//   // $(window).resize(function () {
-//   //   console.log("Resizing...");
-//   //   resizeCanvas(canvasContainer.width(), canvasContainer.height());
-//   // });
-//   // // create an instance of the class
-//   // myInstance = new MyClass(VALUE1, VALUE2);
-// // 
-//   // var centerHorz = windowWidth / 2;
-//   // var centerVert = windowHeight / 2;
-
-//   // background(21, 8, 50); // background color
-
-//   // integrate: randomizing noise level
-//   noise_scale = random(5, 100); 
-
-//   // imitate
-//   // I am imitating the following: https://openprocessing.org/sketch/494102
-
-//   // generate initial particles
-//   for (var i = 0; i < max_particles; i++) {
-//     // define particle objects
-//     variation_one[i] = new Particle(random(0, width), random(0, height));
-//     variation_two[i] = new Particle(random(0, width), random(0, height));
-//     variation_three[i] = new Particle(random(0, width), random(0, height));
-//   }
-// }
-
-// draw() function is called repeatedly, it's the main animation loop
-// function display() {
-//   // call a method on the instance
-//   // myInstance.myMethod();
-
-//   // Put drawings here
-
-//   // imitate
-//   // I am imitating this design: https://openprocessing.org/sketch/494102
-//   noStroke();
-//   smooth(); // smooth edges for lines
-
-//   // traverse particles
-//   for (var i = 0; i < max_particles; i++) {
-//     // particle design
-//     var r = map(i, 0, max_particles, 1, 2); // define size/radius of particle
-//     var a = map(i, 0, max_particles, 0, 250); // define transparency/alpha of a particle
-
-//     // varation one particle design
-//     fill(69, 33, 124, a);
-//     variation_one[i].movement(); // begin drawing variation one's particle design
-//     variation_one[i].shape_movement(r); // particle size
-//     variation_one[i].reach_edge(); // keep particles within boundaries
-
-//     // variation two particle design
-//     fill(7, 153, 242, a);
-//     variation_two[i].movement();
-//     variation_two[i].shape_movement(r);
-//     variation_two[i].reach_edge();
-
-//     // variation three particle design
-//     fill(255, 255, 255, a);
-//     variation_three[i].movement();
-//     variation_three[i].shape_movement(r);
-//     variation_three[i].reach_edge();
-//   }
-// }
-
-// mousePressed() function is called once after every time a mouse button is pressed
-function mousePressed() {
-  // code to run when mouse is pressed
 }
 
 /**

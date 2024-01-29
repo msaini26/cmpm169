@@ -5,6 +5,8 @@ let palette;
 let graphics;
 let sketch;
 
+let drawBackground = false;
+
 // Globals
 let myInstance;
 let canvasContainer;
@@ -58,7 +60,7 @@ function setup() {
     sketch = new MyClass(1, 2);
 }
 
-function draw() {
+function display() {
 	let rs = random(10000);
 	clear();
 	background(240);
@@ -163,7 +165,12 @@ function draw() {
 	blendMode(ADD);
 	image(graphics, 0, 0);
 	blendMode(BLEND);
+}
 
-    // sketch.draw();
+function draw() {
+    if(!drawBackground){
+        display();
+        drawBackground = true;
+    }
     sketch.display();
 }
