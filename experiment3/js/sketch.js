@@ -14,13 +14,14 @@ const VALUE2 = 2;
 // let myInstance;
 // let canvasContainer;
 
-var max_particles = 200;
+var max_particles = 100;
 var variation_one = [];
 var variation_two = [];
 var variation_three = [];
+var variation_four = [];
 var noise_scale;
 
-let c1, c2, c3;
+let c1, c2, c3, c4;
 
 
 class MyClass {
@@ -33,14 +34,17 @@ class MyClass {
     // generate initial particles
     for (var i = 0; i < max_particles; i++) {
       // define particle objects
+      // innovate: modified variation to change particle direction and movement
       variation_one[i] = new Particle(random(0, width), random(0, height));
       variation_two[i] = new Particle(random(0, width), random(0, height));
       variation_three[i] = new Particle(random(0, width), random(0, height));
+      variation_four[i] = new Particle(random(250, width), random(250, height));
     }
 
     c1 = random(this.colors);
     c2 = random(this.colors);
     c3 = random(this.colors);
+    c4 = random(this.colors);
 
     loop();
   }
@@ -51,9 +55,9 @@ class MyClass {
   
     // traverse particles
     for (var i = 0; i < max_particles; i++) {
-      // particle design
-      var r = map(i, 0, max_particles, 1, 2); // define size/radius of particle
-      var a = map(i, 0, max_particles, 0, 250); // define transparency/alpha of a particle
+      // innovate: changing the particle structure and design
+      var r = map(i, 0, max_particles, 1, 20); // define size/radius of particle
+      var a = map(i, 0, max_particles, 0, 150); // define transparency/alpha of a particle
 
   
       // varation one particle design
@@ -73,6 +77,13 @@ class MyClass {
       variation_three[i].movement();
       variation_three[i].shape_movement(r);
       variation_three[i].reach_edge();
+
+      // innovate: another variation four particle design
+      // shifted type of movement compared to other particles
+      fill(c4);
+      variation_four[i].movement();
+      variation_four[i].shape_movement(30);
+      variation_four[i].reach_edge();
     }
   }
 
@@ -93,7 +104,7 @@ function Particle(x, y) {
   this.speed = 0.4;
 
   // particle movement
-  this.movement = function () {
+  this.movement = function() {
     var particle_angle =
       noise(this.position.x / noise_scale, this.position.y / noise_scale) *
       TWO_PI *
@@ -112,7 +123,7 @@ function Particle(x, y) {
   };
 
   // edge case: keep particles within boundaries
-  this.reach_edge = function () {
+  this.reach_edge = function() {
     // outside left and right canvas boundaries
     // or outside up and down canvas boundaries
     if (
