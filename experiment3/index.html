@@ -37,18 +37,28 @@
         <div class="minor-section">
           <h2>Imitate</h2>
           <p>
-            To develop artistic creativity in coding, it can be helpful to start
-            by studying and learning from existing examples. This might involve
-            reviewing code written by others, analyzing successful techniques,
-            or even copying and modifying code to better understand how it
-            works. By imitating and learning from existing techniques and
-            strategies, we can gain a better understanding of what has been done
-            before and what is possible, and identify opportunities for
-            improvement and innovation.
+            Mansi - I chose to imitate the following simulation:
+            https://openprocessing.org/sketch/494102 I enjoyed walking through
+            the steps of recreating this simulation to better understand how
+            noise works in comparison to randomness. In the recreation process,
+            I accidentally switched the naming conventions for the particle’s
+            movement with its respective x and y coordinates. As a result, the
+            particles were solely following the initial set coordinates versus
+            moving to their updated position to create the flowing noise effect.
           </p>
+          <break></break>
           <p>
-            What code did you start with? (You don't need to provide the code
-            itself, but where did you start?) Document this step briefly.
+            Rebecca - As our first time pair programming for this class, we
+            decided to each choose an example to imitate. The one I chose is the
+            following: https://openprocessing.org/sketch/1247971 While
+            implementing the example, I ran into some issues with functions
+            being undefined. To fix this, I realized I had to import one of the
+            libraries they use to randomly generate color palettes as
+            illustrated in the below two images. This library helps get arrays
+            of random colors that fit within a certain color scheme which makes
+            the piece look more cohesive and professional. I found where to
+            implement the library through
+            https://editor.p5js.org/yellow/sketches/enFPR1YKz.
           </p>
         </div>
 
@@ -64,8 +74,31 @@
             create something new and unique.
           </p>
           <p>
-            How did you extend the code or combine with another technique to
-            make something new? Document this step.
+            Once we were able to implement both examples, we ran into some
+            issues on how to combine the two techniques together. We realized
+            that we had to edit how one of the sketches was formatted and turn
+            it into a class instead. This way, we could create an object of the
+            class in the other sketch to draw them on top of each other. Once we
+            reorganized Mansi’s example to follow a class layout, we then ran
+            into another issue. Mansi’s example showed up on top of Rebecca’s
+            design but it doesn’t continuously draw and only shows up as small
+            random dots all over the screen. We then found out that it was
+            because there was a specification of noLoop() inside of the setup of
+            Rebecca’s design, as illustrated in the image below. The example
+            uses this so the generated artwork doesn’t continuously flash a
+            different design and instead, keeps one until you refresh the entire
+            browser. Because of the noLoop(), we had to come up with another
+            method to continuously loop Mansi’s design but only generate
+            Rebecca’s design once. After playing around with the code, we
+            figured out that the easiest solution would be to create a boolean
+            around the display method for Rebecca’s design so it would only draw
+            once. This way, Mansi’s design could continuously draw while
+            Rebecca’s design stays static. After integrating both techniques,
+            the design came out looking very unique. We thought it looked pretty
+            cool but they still looked like two separate designs and not that
+            cohesive. This is when we decided to experiment more with the color
+            schemes as well as drawing styles to make it appear more as one
+            final piece.
           </p>
         </div>
 
@@ -80,22 +113,117 @@
             groundbreaking.
           </p>
           <p>
-            How did you use the code as a jumping off point to create something
-            truly unique and novel? Document this step thoroughly.
+            To first make the color schemes match, we passed in the color
+            palette used from Rebecca’s design into Mansi’s design so that the
+            colors match. We then randomized each of the line colors by picking
+            a random one from the given array color palette as illustrated
+            below. Sometimes, this would lead to every line having the same
+            color but we thought it would be cool that sometimes the lines are
+            monochrome while other times, they have different shades involved.
+          </p>
+          <break></break>
+          <p>
+            We then experimented with the initial particle structure, changing
+            how the noise texture appeared on the screen. We played around with
+            the transparency levels to overlay varying opacity levels of colors
+            to indicate depth on the design itself. We also expanded the lower
+            and upper bound for the particle radius, giving way to a smoother
+            feel from the generative art. In addition, we first attempted to
+            increase the maximum number of particles to see what would happen,
+            around 500 as the maximum, but quickly realized that the browser was
+            unable to render that many at once. As a result, after switching the
+            values down to around 150, we noticed that the browser was not only
+            able to generate the particles faster, but the particle trail was
+            more visible within the art piece itself. In addition, then we tried
+            integrating another variation, but changing the initial direction
+            and evolution fo the particles. After experimenting with a variety
+            of fixed combinations for the initial lower bound range of width and
+            height, setting them equal created a unique spiral movement and
+            pattern when generated. Below are a couple of visual examples from
+            the experimentation elements explained here.
+          </p>
+          <break></break>
+          <p>
+            Finally, we modified the fourth variation of noise particle clusters
+            even further to change the styling compared to the other cluster
+            variations. First, we attempted to supersize the radius of the
+            cluster particle variation to 130, which looked absolutely
+            incredible. Because of its sheer size, the particles floated like
+            bubbles across the screen compared to the thinner ones snaking
+            across the screen. However, as much as we liked this design
+            variation, we realized that our computers could barely keep up with
+            the amount of particles generated on the screen. As a result, we
+            switched to another option of having an increased radius cluster,
+            but reducing the size to allow for easier particle generation with
+            the computers. We are super excited with how the end result looks
+            with each variation completely unique from the rest. Below are
+            images of the experimentation we described here.
           </p>
         </div>
 
         <div class="minor-section">
           <h2>Reflection</h2>
-          <p>
-            Each person that worked on the code should reflect on the process,
-            the difficulties, and the successes of the experiment. Here's where
-            you can put your reflections.
-          </p>
+
           <ul>
             <li>What part of the project you contributed</li>
+            <p>
+              Mansi - I started by imitating the Perlin noise effects with the
+              branches created and ran into a few bugs on how the noise
+              particles were being generated. After debugging and fixing this
+              region, I attempted to integrate a given color dataset into the
+              design to randomize the generated art output. I later transitioned
+              to Rebecca’s implementation of the imported color array library
+              instead of the innovation step. In addition, I experimented with
+              the particle structure and generation in the innovation step to
+              create a smooth design that flowed with the slow-moving noise
+              particles. I also experimented with particle movement to generate
+              varying sizes, shapes, and angles of particles to generate unique
+              flowing generative art. In addition, I also created a modified
+              variation of the particle design to change the particle cluster
+              generation direction and design. I also documented our work from
+              the imitation and innovation stages of the project and explained
+              how we experimented in each section.
+            </p>
             <li>A reflection on your work and the work of the team</li>
+            <p>
+              We are extremely happy with the end result of the generative noise
+              design, especially with how each iteration is completely unique
+              from the previous one. Initially, we were a bit hesitant on how
+              two designs would be merged together, but we quickly realized that
+              our concepts would flow perfectly together. After both Mansi and
+              Rebecca’s designs were merged together, we realized that we could
+              make the design appear as though the noise was emerging from the
+              shape art background. As a result, after experimenting with the
+              noise particle generation and movement, the ending art result was
+              unexpected, yet beautiful. We worked well together as a team to
+              split up the work and merge the results together. With pair
+              programming and varying schedules, we were unsure how the
+              collaboration would ultimately turn out, but with both of our
+              unique ideas, the end result looks seamlessly combined and
+              visually pleasing to the eye.
+            </p>
             <li>Brief highs and lows</li>
+            <p>
+              One major high of this project was how the art piece final result
+              turned out with the randomized colors and trailed noise particle
+              generation. We were shocked with how we were able to combine two
+              completely different designs together to create a cohesive art
+              style and noise-inspired masterpiece as a whole. In addition, we
+              are also happy on how the random color generation helped create
+              depth to the art piece, where the background colors were more
+              muted and the foreground colors were brighter and popping. In
+              addition, we were surprised with how our piece almost had a 3-D
+              effect with how the noise particles moved together in clusters.
+              Some lows of the project were the debugging during the imitation
+              and integration stages of the project. Despite the fix for the
+              Perlin noise simulation being relatively simple, trying to figure
+              out the bug of particle positioning and naming conventions took a
+              while to figure out. In addition, during the integration portion
+              of the project, we struggled to understand how to merge both art
+              designs together, since the coding structure itself was completely
+              different. After converting the design to include a given class,
+              the rest of the design unfolded on itself quite nicely.
+            </p>
           </ul>
         </div>
 
