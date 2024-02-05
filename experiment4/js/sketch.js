@@ -16,7 +16,8 @@ let canvasContainer;
 
 // imitate: https://openprocessing.org/sketch/909153
 var video_feed;
-var art_texture;
+var img_stored;
+let art_texture;
 
 class MyClass {
   constructor(param1, param2) {
@@ -51,8 +52,8 @@ function setup() {
   video_feed = createCapture(VIDEO); // take incoming video feed
   video_feed.size(640, 480);
   img_stored = createGraphics(640, 480); // create a graphics buffer to store the video feed
-  image_stored.translate(640, 0); // move the image to the right
-  image_stored.scale(-1, 1); // flip the image horizontally
+  img_stored.translate(640, 0); // move the image to the right
+  img_stored.scale(-1, 1); // flip the image horizontally
   rectMode(CENTER); // set the video mode to center
   video_feed.hide(); // hide the video feed
 
@@ -66,24 +67,97 @@ function setup() {
       art_texture.set(
         i,
         j,
-        color(100, noise(i / 3, j / 3), (i * j) / 50) *
-          RTCEncodedAudioFrame([0, 50, 100])
+        color(100, noise(i / 3, j / 3), (i * j) / 50) * random([0, 50, 100])
       );
     }
   }
   art_texture.updatePixels(); // update pixels
 }
 
+let art_mode = 1; // set the art mode to 1
+
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
-  background(220);
+  background(0);
   // call a method on the instance
   myInstance.myMethod();
 
   // Put drawings here
+  img_stored.image(video_feed, 0, 0); // draw the video feed to the buffer
+
+  // imitate: https://openprocessing.org/sketch/909153
+  // generating the pixels based on the image stored
+  push();
+  noStroke(); // set no stroke
+  // integrate: switching up the feed scale
+  scale(1.5); // set scale to
+  radius = max(mouseX, 0) / 10 + 20; // set radius
+
+  for (var i = 0; i < img_stored.height; i += radius) {
+    for (var j = 0; j < img_stored.width; j += radius) {
+      var draw_pixel = img_stored.get(j, i); // get the pixel from the video feed
+      var red = draw_pixel[0];
+      var green = draw_pixel[1];
+      var blue = draw_pixel[2];
+
+      // imitate: https://openprocessing.org/sketch/909153
+      // setting the background values
+      let background = (red + green + blue) / 3; // set the background to the average of the red, green, and blue values
+      let backgroundIndex = 10 - int(background / 25.5); // set the background index to 10 minus the integer value of the background divided by 25.5
+
+      // imitate: https://openprocessing.org/sketch/909153
+      if (art_mode == 1) {
+        let txt = "一二三天四五田電龍龕龘";
+        fill(red + 50, blue + 50, green + 50); // set text color
+        textSize(radius); // set text size
+        textStyle(BOLD); // set text style to bold
+        text(txt[backgroundIndex], j, i); // set the text to the background index
+      } else if (art_mode == 2) {
+        ellipse(j, i, radius / 3 + blue / 15, radius / 3 + blue / 15); // draw an ellipse
+      } else if (art_mode == 3) {
+        push();
+        translate(j, i);
+        rotate(blue / 20);
+        colorMode(HSB);
+        fill(red, 100, 100);
+        rect(0, 0, radius / 2.5 + red / 20, radius / 2.5 + red / 20);
+        fill(0);
+        ellipse(0, 0, 5);
+        pop()
+
+        // integration potentially
+        // rect(j, i, radius/3 + b/15, radius/3 + b/15); // draw a rectangle
+      }
+    }
+  }
+  // pop()
+
+  // push()
+  // blendMode(MULTIPLY);
+  // image(art_texture, 0, 0);
+  // pop()
 }
+
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
   // code to run when mouse is pressed
-  console.log("hi");
+  art_mode += 1; // increment the art mode
+  if (art_mode > 3) {
+    art_mode = 1; // reset art mode
+  }
+}
+
+// keyPressed() function is called once after every time a key is pressed
+function keyPressed() {
+  // code to run when key is pressed
+  // setting art modes
+  if (key == "1") {
+    art_mode = 1; // set art mode to 1
+  }
+  if (key == "2") {
+    art_mode = 2; // set art mode to 2
+  }
+  if (key == "3") {
+    art_mode = 3; // set art mode to 3
+  }
 }
