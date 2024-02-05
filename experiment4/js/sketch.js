@@ -91,7 +91,8 @@ function draw() {
   noStroke(); // set no stroke
   // integrate: switching up the feed scale
   scale(1.5); // set scale to
-  radius = max(mouseX, 0) / 10 + 20; // set radius
+  // integrate: switching the radius generation
+  radius = max(mouseX + 100, 100) / 10 + 20; // set radius
 
   for (var i = 0; i < img_stored.height; i += radius) {
     for (var j = 0; j < img_stored.width; j += radius) {
