@@ -15,10 +15,8 @@ let myInstance;
 let canvasContainer;
 
 // imitate: https://openprocessing.org/sketch/909153
-var capture;
-var radius = 20;
-var imgCache;
-let overAllTexture;
+var video_feed;
+var art_texture;
 
 class MyClass {
   constructor(param1, param2) {
@@ -47,6 +45,33 @@ function setup() {
 
   var centerHorz = windowWidth / 2;
   var centerVert = windowHeight / 2;
+
+  // imitate: https://openprocessing.org/sketch/909153
+  // initialize video feed
+  video_feed = createCapture(VIDEO); // take incoming video feed
+  video_feed.size(640, 480);
+  img_stored = createGraphics(640, 480); // create a graphics buffer to store the video feed
+  image_stored.translate(640, 0); // move the image to the right
+  image_stored.scale(-1, 1); // flip the image horizontally
+  rectMode(CENTER); // set the video mode to center
+  video_feed.hide(); // hide the video feed
+
+  // set video feed texture with characters
+  art_texture = createGraphics(width, height); // create a graphics buffer to store the video feed
+  art_texture.loadPixels(); // load pixels
+
+  // set the texture
+  for (var i = 0; i < width + 50; i++) {
+    for (var j = 0; j < height + 50; j++) {
+      art_texture.set(
+        i,
+        j,
+        color(100, noise(i / 3, j / 3), (i * j) / 50) *
+          RTCEncodedAudioFrame([0, 50, 100])
+      );
+    }
+  }
+  art_texture.updatePixels(); // update pixels
 }
 
 // draw() function is called repeatedly, it's the main animation loop
