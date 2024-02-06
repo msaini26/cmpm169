@@ -75,7 +75,6 @@ function setup() {
 }
 
 let art_mode = 1; // set the art mode to 1
-var angle =0.0;
 
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
@@ -109,7 +108,7 @@ function draw() {
 
       // imitate: https://openprocessing.org/sketch/909153
       if (art_mode == 1) {
-        let txt = "一二三天四五田電龍龕龘";
+        let txt = "کنمजदगपकनमद天四五田";
         fill(red + 50, blue + 50, green + 50); // set text color
         textSize(radius); // set text size
         textStyle(BOLD); // set text style to bold
@@ -132,19 +131,12 @@ function draw() {
       }
     }
   }
+  // pop()
 
-  if (keyIsDown(32) || frameCount < 130){
-    let videoFrame = createImage(video_feed.width, video_feed.height);
-    videoFrame.copy(video_feed, 0, 0, video_feed.width, video_feed.height, 0, 0, videoFrame.width, videoFrame.height);
-	  translate(300, 200);
-    imageMode(CENTER);
-	  rotate(angle);
-    tint(157, 132, 227);
-    videoFrame.filter(POSTERIZE, 3);
-    image(videoFrame, 0, 0, 200, 200);
-	  angle += 0.05;
-	}
-  
+  // push()
+  // blendMode(MULTIPLY);
+  // image(art_texture, 0, 0);
+  // pop()
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
