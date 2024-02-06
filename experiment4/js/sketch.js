@@ -18,6 +18,8 @@ let canvasContainer;
 var video_feed;
 var img_stored;
 let art_texture;
+var angle =0.0;
+
 
 class MyClass {
   constructor(param1, param2) {
@@ -125,12 +127,24 @@ function draw() {
         fill(0);
         ellipse(0, 0, 5);
         pop()
-
-        // integration potentially
-        // rect(j, i, radius/3 + b/15, radius/3 + b/15); // draw a rectangle
       }
     }
   }
+
+
+  if (keyIsDown(32) || frameCount < 130){
+    let videoFrame = createImage(video_feed.width, video_feed.height);
+    videoFrame.copy(video_feed, 0, 0, video_feed.width, video_feed.height, 0, 0, videoFrame.width, videoFrame.height);
+	  translate(300, 200);
+    imageMode(CENTER);
+	  rotate(angle);
+    tint(157, 132, 227);
+    videoFrame.filter(POSTERIZE, 3);
+    image(videoFrame, 0, 0, 200, 200);
+	  angle += 0.05;
+	}
+  
+
   // pop()
 
   // push()
@@ -154,6 +168,7 @@ function keyPressed() {
   // setting art modes
   if (key == "1") {
     art_mode = 1; // set art mode to 1
+    ellipse(j, i, radius / 3 + blue / 15, radius / 3 + blue / 15); // draw an ellipse
   }
   if (key == "2") {
     art_mode = 2; // set art mode to 2
