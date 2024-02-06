@@ -1,109 +1,146 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment 4 - Image/Video</title>
+  <head>
+    <!-- This title is used for tabs and bookmarks -->
+    <title>Experiment 4 - Image/Video</title>
 
-	<!-- Use UTF character set, a good idea with any webpage -->
-	<meta charset="UTF-8" />
-	<!-- Set viewport so page remains consistently scaled w narrow devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Use UTF character set, a good idea with any webpage -->
+    <meta charset="UTF-8" />
+    <!-- Set viewport so page remains consistently scaled w narrow devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
-	<link rel="stylesheet" type="text/css" href="../css/site.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Include CSS file, including a site-wide CSS and for this particular page -->
+    <link rel="stylesheet" type="text/css" href="../css/site.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-	<!-- Load jQuery library -->
-	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-	<!-- Load p5.js library -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <!-- Load jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <!-- Load p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
 
-	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
-	<!-- Use me for a JavaScript OOP Project -->
-	<script type="text/javascript" src="./js/project.js" DEFER></script>
-	<!-- Use me for a p5.js project -->
-	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
-</head>
-<body>
-	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
-	<main id="content">
-		<section>
-			<h1>Experiment X - Subject/Topic</h1>
-			<div class="minor-section">
-				<h2>Imitate</h2>
-				<p>We decided to imitate this <a href="https://openprocessing.org/sketch/909153">example</a>.
-					For this example, we learned how to set up the camera and utilize it as an
-					element of our piece...
-				</p>
-			</div>
+    <!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <!-- Use me for a JavaScript OOP Project -->
+    <script type="text/javascript" src="./js/project.js" defer></script>
+    <!-- Use me for a p5.js project -->
+    <script type="text/javascript" src="./js/sketch.js" defer></script>
+  </head>
+  <body>
+    <!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+    <main id="content">
+      <section>
+        <h1>Experiment 4 - Subject/Topic</h1>
+        <div class="minor-section">
+          <h2>Imitate</h2>
+          <p>
+            We decided to imitate this
+            <a href="https://openprocessing.org/sketch/909153">example</a>. For
+            this example, we learned how to set up the camera and utilize it as
+            an element of our piece. For the initial setup, the camera settings
+            were relatively straightforward to follow as long as camera
+            permissions were open within the web browser. When the first art
+            mode was created, we displayed the camera video feed changing with
+            the Mandarin characters. In the camera feed image, we put a bright
+            phone screen in a dimly lit room, and the shape of the phone and its
+            excess brightness emittance are shown in the letters themselves. One
+            area we are interested in exploring is the lettering output and what
+            might happen if we change how the art output is created from the
+            video feed itself. In another art mode, the shapes were distored and
+            blue with the phone brightness while the rest of the squares were
+            red.
+          </p>
+        </div>
 
-			<div class="minor-section">
-				<h2>Integrate</h2>
-				<p>For integration, we wanted to experiment around with overlaying some effects on top of our
-					current example. We found this <a href="https://openprocessing.org/sketch/1613173">example</a>
-					of making images captured from a video constantly spin in circles with the mouse as its origin.
-					When trying to implement it, we ran into some issues with detecting which button is pressed as 
-					well as adding filters to the video. We decided to make the spinning video appear in the center 
-					of the screen when the spacebar is pressed down, instead of following the mouse and showing up on 
-					mouse click. After we got that working, we started to play around with some effects.
-				</p>
-			</div>
+        <div class="minor-section">
+          <h2>Integrate</h2>
+          <p>
+            For integration, we wanted to experiment around with overlaying some
+            effects on top of our current example. We found this
+            <a href="https://openprocessing.org/sketch/1613173">example</a>
+            of making images captured from a video constantly spin in circles
+            with the mouse as its origin. When trying to implement it, we ran
+            into some issues with detecting which button is pressed as well as
+            adding filters to the video. We decided to make the spinning video
+            appear in the center of the screen when the spacebar is pressed
+            down, instead of following the mouse and showing up on mouse click.
+            After we got that working, we started to play around with some
+            effects.
+          </p>
+        </div>
 
-			<div class="minor-section">
-				<h2>Innovate</h2>
-				<p>Our intial thought was that showing a plain video of what is being captured is relatively boring.
-					To make it more interesting, we decided to add a filter to the spinning video. We ran into some 
-					issues again where the filters were being applied to everything on the canvas, but we eventually 
-					figured out how to specify it so that the filter is only being applied to the spinning video.
-				</p>
-			</div>
+        <div class="minor-section">
+          <h2>Innovate</h2>
+          <p>
+            Our intial thought was that showing a plain video of what is being
+            captured is relatively boring. To make it more interesting, we
+            decided to add a filter to the spinning video. We ran into some
+            issues again where the filters were being applied to everything on
+            the canvas, but we eventually figured out how to specify it so that
+            the filter is only being applied to the spinning video.
+          </p>
+        </div>
 
-			<div class="minor-section">
-				<h2>Reflection</h2>
-				<p>
-					Mansi - I worked on the imitation stage, tying the camera effects learned from lecture and an example with 
-					Mandarin characters representing the video feed itself. I incorporated multiple art modes to provide 
-					an element of interactivity in the art piece, which is something we wanted to explore during the 
-					integration phase.
-				</p>
-				<p>
-					Rebecca - I mainly worked on the integration step as well as part of the innovation process. I found the example 
-					of the spinning video and implemented it into our experiment. There were a few issues that came along 
-					the way but I helped figure it out. I also applied some filters to the video to try and make our piece 
-					look more interesting and unique. We both helped write up this document/reflection.
-				</p>
-				<p>
-					Overall, this experiment turned out looking pretty cool. It was both of our first times using the camera 
-					to help create a piece of artwork so it took us some time to fully understand how it works. Once we got it 
-					working, things quickly started getting more interesting and we were able to expand vastly from our original 
-					example. We had a lot of fun playing around with the different video/image capabilities and also tested out 
-					what we liked/disliked. 
-				</p>
-				<p>
-					One highlight of this experiment was how seamless the imitation process was, especially considering the technicalities 
-					of camera integration. From the professor’s demonstrations in the lecture, the Mandarin character example seemed 
-					quite difficult to create, especially considering the video feed connection with pixelated letters and shapes. In the 
-					end, setting up the camera and video feed to pixels was quite simpler than we imagined, which allowed us to experiment 
-					more during the integration and innovation phases of the project. Also, one low of this experiment was that we both lost 
-					power and connection during our work session times for the project. As a result, we had to utilize as much time as we could 
-					whenever the power would come back on during the storm. We generally have a set timeline of when we want to work on each 
-					part of the experiment, but our timeline was changed slightly because of the storm this past weekend. Besides that, we also 
-					really enjoyed experimenting around with the different camera effects. Although there were some issues during the process, 
-					once we figured it out, it all turned out looking pretty cool.
-				</p>
-			</div>
+        <div class="minor-section">
+          <h2>Reflection</h2>
+          <p>
+            Mansi - I worked on the imitation stage, tying the camera effects
+            learned from lecture and an example with Mandarin characters
+            representing the video feed itself. I incorporated multiple art
+            modes to provide an element of interactivity in the art piece, which
+            is something we wanted to explore during the integration phase.
+          </p>
+          <p>
+            Rebecca - I mainly worked on the integration step as well as part of
+            the innovation process. I found the example of the spinning video
+            and implemented it into our experiment. There were a few issues that
+            came along the way but I helped figure it out. I also applied some
+            filters to the video to try and make our piece look more interesting
+            and unique. We both helped write up this document/reflection.
+          </p>
+          <p>
+            Overall, this experiment turned out looking pretty cool. It was both
+            of our first times using the camera to help create a piece of
+            artwork so it took us some time to fully understand how it works.
+            Once we got it working, things quickly started getting more
+            interesting and we were able to expand vastly from our original
+            example. We had a lot of fun playing around with the different
+            video/image capabilities and also tested out what we liked/disliked.
+          </p>
+          <p>
+            One highlight of this experiment was how seamless the imitation
+            process was, especially considering the technicalities of camera
+            integration. From the professor’s demonstrations in the lecture, the
+            Mandarin character example seemed quite difficult to create,
+            especially considering the video feed connection with pixelated
+            letters and shapes. In the end, setting up the camera and video feed
+            to pixels was quite simpler than we imagined, which allowed us to
+            experiment more during the integration and innovation phases of the
+            project. Also, one low of this experiment was that we both lost
+            power and connection during our work session times for the project.
+            As a result, we had to utilize as much time as we could whenever the
+            power would come back on during the storm. We generally have a set
+            timeline of when we want to work on each part of the experiment, but
+            our timeline was changed slightly because of the storm this past
+            weekend. Besides that, we also really enjoyed experimenting around
+            with the different camera effects. Although there were some issues
+            during the process, once we figured it out, it all turned out
+            looking pretty cool.
+          </p>
+        </div>
 
-			<div class="minor-section">
-				<h2>Results</h2>
-				<p>Press down spacebar to make spinng video appear. Press 1, 2, 3 or use mouse click to switch art mode.</p>
-				<div id="canvas-container">
-					<!-- canvas will be added here -->
-				</div>
-			</div>
-		</section>
-		<nav id="links">
-			<!-- Put links to other pages (including the homepage) here. -->
-		</nav>
-	</main>
-</body>
+        <div class="minor-section">
+          <h2>Results</h2>
+          <p>
+            Press down spacebar to make spinng video appear. Press 1, 2, 3 or
+            use mouse click to switch art mode.
+          </p>
+          <div id="canvas-container">
+            <!-- canvas will be added here -->
+          </div>
+        </div>
+      </section>
+      <nav id="links">
+        <!-- Put links to other pages (including the homepage) here. -->
+      </nav>
+    </main>
+  </body>
 </html>
