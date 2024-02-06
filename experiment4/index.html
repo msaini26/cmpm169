@@ -31,34 +31,71 @@
 			<h1>Experiment X - Subject/Topic</h1>
 			<div class="minor-section">
 				<h2>Imitate</h2>
-				<p>To develop artistic creativity in coding, it can be helpful to start by studying and learning from existing examples. This might involve reviewing code written by others, analyzing successful techniques, or even copying and modifying code to better understand how it works. By imitating and learning from existing techniques and strategies, we can gain a better understanding of what has been done before and what is possible, and identify opportunities for improvement and innovation.</p>
-				<p>What code did you start with? (You don't need to provide the code itself, but where did you start?) Document this step briefly.</p>
+				<p>We decided to imitate this <a href="https://openprocessing.org/sketch/909153">example</a>.
+					For this example, we learned how to set up the camera and utilize it as an
+					element of our piece...
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Integrate</h2>
-				<p>After learning from existing techniques and strategies, we can build upon that foundation by combining elements from different sources. This might involve combining elements from different programming languages, using libraries or frameworks in new ways, or bringing together techniques from different fields or disciplines. By integrating and combining elements from different sources, we can create something new and unique.</p>
-				<p>How did you extend the code or combine with another technique to make something new? Document this step.</p>
+				<p>For integration, we wanted to experiment around with overlaying some effects on top of our
+					current example. We found this <a href="https://openprocessing.org/sketch/1613173">example</a>
+					of making images captured from a video constantly spin in circles with the mouse as its origin.
+					When trying to implement it, we ran into some issues with detecting which button is pressed as 
+					well as adding filters to the video. We decided to make the spinning video appear in the center 
+					of the screen when the spacebar is pressed down, instead of following the mouse and showing up on 
+					mouse click. After we got that working, we started to play around with some effects.
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Innovate</h2>
-				<p>Finally, we can introduce new or original ideas to our coding process by thinking creatively and pushing the boundaries. This might involve developing entirely new techniques or approaches, or using existing techniques in new and creative ways. By innovating and introducing new ideas, we can create art that is truly groundbreaking.</p>
-				<p>How did you use the code as a jumping off point to create something truly unique and novel? Document this step thoroughly.</p>
+				<p>Our intial thought was that showing a plain video of what is being captured is relatively boring.
+					To make it more interesting, we decided to add a filter to the spinning video. We ran into some 
+					issues again where the filters were being applied to everything on the canvas, but we eventually 
+					figured out how to specify it so that the filter is only being applied to the spinning video.
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment. Here's where you can put your reflections.</p>
-				<ul>
-					<li>What part of the project you contributed</li>
-					<li>A reflection on your work and the work of the team</li>
-					<li>Brief highs and lows</li>
-				</ul>
+				<p>
+					Mansi - I worked on the imitation stage, tying the camera effects learned from lecture and an example with 
+					Mandarin characters representing the video feed itself. I incorporated multiple art modes to provide 
+					an element of interactivity in the art piece, which is something we wanted to explore during the 
+					integration phase.
+				</p>
+				<p>
+					Rebecca - I mainly worked on the integration step as well as part of the innovation process. I found the example 
+					of the spinning video and implemented it into our experiment. There were a few issues that came along 
+					the way but I helped figure it out. I also applied some filters to the video to try and make our piece 
+					look more interesting and unique. We both helped write up this document/reflection.
+				</p>
+				<p>
+					Overall, this experiment turned out looking pretty cool. It was both of our first times using the camera 
+					to help create a piece of artwork so it took us some time to fully understand how it works. Once we got it 
+					working, things quickly started getting more interesting and we were able to expand vastly from our original 
+					example. We had a lot of fun playing around with the different video/image capabilities and also tested out 
+					what we liked/disliked. 
+				</p>
+				<p>
+					One highlight of this experiment was how seamless the imitation process was, especially considering the technicalities 
+					of camera integration. From the professor’s demonstrations in the lecture, the Mandarin character example seemed 
+					quite difficult to create, especially considering the video feed connection with pixelated letters and shapes. In the 
+					end, setting up the camera and video feed to pixels was quite simpler than we imagined, which allowed us to experiment 
+					more during the integration and innovation phases of the project. Also, one low of this experiment was that we both lost 
+					power and connection during our work session times for the project. As a result, we had to utilize as much time as we could 
+					whenever the power would come back on during the storm. We generally have a set timeline of when we want to work on each 
+					part of the experiment, but our timeline was changed slightly because of the storm this past weekend. Besides that, we also 
+					really enjoyed experimenting around with the different camera effects. Although there were some issues during the process, 
+					once we figured it out, it all turned out looking pretty cool.
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Results</h2>
+				<p>Press down spacebar to make spinng video appear. Press 1, 2, 3 or use mouse click to switch art mode.</p>
 				<div id="canvas-container">
 					<!-- canvas will be added here -->
 				</div>
