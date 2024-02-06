@@ -168,7 +168,6 @@ function keyPressed() {
   // setting art modes
   if (key == "1") {
     art_mode = 1; // set art mode to 1
-    ellipse(j, i, radius / 3 + blue / 15, radius / 3 + blue / 15); // draw an ellipse
   }
   if (key == "2") {
     art_mode = 2; // set art mode to 2
