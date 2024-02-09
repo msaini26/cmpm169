@@ -118,7 +118,8 @@ function draw() {
   pop(); // end of spiral
 }
 
-// mousePressed() function is called once after every time a mouse button is pressed
-function mousePressed() {
-  // code to run when mouse is pressed
+// keyPressed() function is called once after every time a keyboard key is pressed
+function keyPressed() {
+  save('pix.jpg');
 }
+
