@@ -64,42 +64,48 @@ function draw() {
   // Put drawings here
   // imitate: https://openprocessing.org/sketch/1162440
   orbitControl(); // allows the use of the mouse to orbit in 3D
-  scale(0.6); // scale the drawing
+  scale(0.5); // scale the drawing
   background(0); // set the background to black
   translate(0, 0, -150); // use z-axis to move the drawing back
 
   // rotate the drawing along the y and z-axis
-  rotateY(frameCount / 2.0);
-  rotateZ(frameCount / 6.0);
+  rotateX(frameCount / 2.0);
+  rotateZ(-frameCount / 6.0);
 
   // add lighting
   ambientLight(30);
 
   // define lighting point locations
   pointLight(30, 20, 100, 0, 0, 0);
-  pointLight(220, 50, 100, 0, 300, 200);
+
+  // integrate: dynamic lighting based on mouse position
+  let lightX = mouseX - width / 2;
+  let lightY = mouseY - height / 2;
+  pointLight(100, 300, 250, lightX, lightY, 500);
 
   // imitate: https://openprocessing.org/sketch/1162440
   // create spirals of points
   push();
   for (let pt = 0; pt < num_points; pt++) {
-    rotateZ((360 * 4.0) / num_points); //spiral 4 times
-    rotateX(pt / 4.0);
+    rotateZ((360 * 10.0) / num_points); //spiral 4 times
+    rotateX(pt / random(1, 4));
     push(); // each individual point of the spiral
 
     for (let pt_length = 150 - pt; pt_length > 10; pt_length /= 1.5) {
       translate(pt_length * 1.25, 0, 0);
       rotateZ(15);
       rotateX(pt * 2);
-      shininess(10);
-      specularMaterial(45 - pt_length, 80, 100);
-      cylinder(pt_length, pt_length / 4, 24);
+      // integrate: extreme lighting
+      shininess(20); // integrate: increased shininess
+      specularMaterial(145 - pt_length, 80, 100);
+      cone(pt_length, pt_length / 4, 24);
+      translate(50, 50, 50); // integrate: firework animation
     }
     pop();
   }
   pop();
 
-  // reflect the spiral  
+  // reflect the spiral
   push();
   for (let pt = 0; pt < num_points; pt++) {
     rotateZ(-1440 / num_points); // swap directions bc we are reflecting the top
@@ -111,7 +117,8 @@ function draw() {
       rotateX(pt * 2);
       shininess(10);
       specularMaterial(45 - pt_length, 80, 100);
-      cylinder(pt_length, pt_length / 4, 24);
+      cone(pt_length, pt_length / 4, 24);
+      torus(50, 20, 24, 16);
     }
     pop(); // end of individual point
   }
@@ -120,6 +127,5 @@ function draw() {
 
 // keyPressed() function is called once after every time a keyboard key is pressed
 function keyPressed() {
-  save('pix.jpg');
+  save("pix.jpg");
 }
-
