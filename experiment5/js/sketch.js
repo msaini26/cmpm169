@@ -57,10 +57,10 @@ function setup() {
   angleMode(DEGREES);
   colorMode(HSB);
   noStroke();
-  for(var i = 0; i<1000; i++){
-    particles.push(new particle);
-}
-noStroke();
+  for (var i = 0; i < 1000; i++) {
+    particles.push(new particle());
+  }
+  noStroke();
 }
 
 // draw() function is called repeatedly, it's the main animation loop
@@ -111,7 +111,6 @@ function draw() {
     pop();
   }
   pop();
-  
 
   // reflect the spiral
   push();
@@ -134,19 +133,19 @@ function draw() {
 
   push();
   rotateX(-mouseY);
-	rotateY(mouseX);
-	offset = 0;
-	for(var i = 0; i<particles.length; i++){
-		particles[i].update();
-	}
-	for(var i = 0; i<particles.length; i++){
-		if(particles[i+offset].ded){
-			particles.splice(i+offset, 1);
-			offset--;
-			i++;
-		}
-	}
-    pop();
+  rotateY(mouseX);
+  offset = 0;
+  for (var i = 0; i < particles.length; i++) {
+    particles[i].update();
+  }
+  for (var i = 0; i < particles.length; i++) {
+    if (particles[i + offset].ded) {
+      particles.splice(i + offset, 1);
+      offset--;
+      i++;
+    }
+  }
+  pop();
 }
 
 // keyPressed() function is called once after every time a keyboard key is pressed
@@ -154,41 +153,60 @@ function keyPressed() {
   save("pix.jpg");
 }
 
-class particle{
-	constructor(){
-		this.direction_x = 0;
-		this.direction_y = 0;
-		this.direction_z = 0;
-		this.to_destroy = false;
-		this.particle_velocity = [random(-1, 1), random(-1, 1), random(-1, 1)];
-		this.total = 0.5/(sqrt((this.particle_velocity[0]*this.particle_velocity[0])+(this.particle_velocity[1]*this.particle_velocity[1])+(this.particle_velocity[2]*this.particle_velocity[2]))+random(-0.9, -0.3));
-		this.particle_velocity = [this.particle_velocity[0]*this.total, this.particle_velocity[1]*this.total, this.particle_velocity[2]*this.total];
-		this.color = random(0, 255);
-		this.particle_lifespan = 0;
-	}
-	update(){
-		this.particle_lifespan += random(0.2, 2);
-		if(this.to_destroy === false && 150<this.particle_lifespan){
-			this.to_destroy = true;
-		}
-		this.particle_velocity = [this.particle_velocity[0]*random(0.99, 1.001), this.particle_velocity[1]*random(0.99, 1.001), this.particle_velocity[2]*random(0.99, 1.001)];
-		this.direction_x += this.particle_velocity[0];
-		this.direction_y += this.particle_velocity[1];
-		this.direction_z += this.particle_velocity[2];
-		if(this.color<240){
-			fill(255, this.color, 0);
-		}
-		else{
-			fill(this.color);
-		}
-		translate(this.direction_x, this.direction_y, this.direction_z);
-		sphere(10, 8, 4);
-		translate(-this.direction_x, -this.direction_y, -this.direction_z);
-	}
+class particle {
+  constructor() {
+    // directions
+    this.direction_x = 0;
+    this.direction_y = 0;
+    this.direction_z = 0;
+    this.to_destroy = false; // particle destroy flag
+    this.particle_velocity = [random(-1, 1), random(-1, 1), random(-1, 1)];
+    this.total =
+      0.5 /
+      (sqrt(
+        this.particle_velocity[0] * this.particle_velocity[0] +
+          this.particle_velocity[1] * this.particle_velocity[1] +
+          this.particle_velocity[2] * this.particle_velocity[2]
+      ) +
+        random(-0.9, -0.3));
+    this.particle_velocity = [
+      this.particle_velocity[0] * this.total,
+      this.particle_velocity[1] * this.total,
+      this.particle_velocity[2] * this.total,
+    ];
+    this.color = random(0, 255);
+    this.particle_lifespan = 0;
+  }
+  update() {
+    // particle movement
+    this.particle_lifespan += random(0.2, 2);
+    if (this.to_destroy === false && 150 < this.particle_lifespan) {
+      this.to_destroy = true;
+    }
+    // set more particles with a set velocity
+    this.particle_velocity = [
+      this.particle_velocity[0] * random(0.99, 1.001),
+      this.particle_velocity[1] * random(0.99, 1.001),
+      this.particle_velocity[2] * random(0.99, 1.001),
+    ];
+    this.direction_x += this.particle_velocity[0];
+    this.direction_y += this.particle_velocity[1];
+    this.direction_z += this.particle_velocity[2];
+    if (this.color < 240) {
+      fill(255, this.color, 0);
+    } else {
+      fill(this.color);
+    }
+    translate(this.direction_x, this.direction_y, this.direction_z);
+    sphere(10, 8, 4);
+    translate(-this.direction_x, -this.direction_y, -this.direction_z);
+  }
 }
 
+
+// add more particles
 function mouseReleased() {
-	for(var i = 0; i<500; i++){
-		particles.push(new particle);
-	}
+  for (var i = 0; i < 500; i++) {
+    particles.push(new particle());
+  }
 }
