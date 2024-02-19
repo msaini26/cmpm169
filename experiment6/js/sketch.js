@@ -138,8 +138,24 @@ function keyReleased() {
     }
 }
 
+// mouseMoved() function is called every time the mouse is moved
+function mouseMoved() {
+  // code to run when mouse is moved
+  // integration: http://www.generative-gestaltung.de/2/sketches/?01_P/P_3_0_01
+  clear();
+  textSize((mouseX - width / 2) * 5 + 1);
+  text(input_letter, width / 2, mouseY);
+}
 
-// mousePressed() function is called once after every time a mouse button is pressed
-function mousePressed() {
-  // code to run when mouse is pressed
+// mouseDragged() function is called every time the mouse is dragged
+function mouseDragged() {
+  // code to run when mouse is dragged
+  textSize((mouseX - width / 2) * 5 + 1);
+  text(input_letter, width / 2, mouseY);
+}
+
+// keyTyped() function is called once after every time a key is typed
+function keyTyped() {
+  // code to run when key is typed
+  input_text += key;
 }
