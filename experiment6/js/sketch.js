@@ -25,6 +25,7 @@ var y;
 
 var display_letter = true;
 
+
 class MyClass {
   constructor(param1, param2) {
     this.property1 = param1;
@@ -113,6 +114,11 @@ function draw() {
       x = 20;
     }
   }
+
+  push();
+  frameRate(2);
+  drawText();
+  pop();
 }
 
 // total_char_count() function is called to count the characters in the text
@@ -130,9 +136,6 @@ function total_char_count() {
 
 // keyReleased() function is called once after every time a key is released
 function keyReleased() {
-    if (key == 's' || key == 'S') {
-      save("image.png");
-    }
     if (key == 'a' || key == 'A') {
         display_letter = !display_letter;
     }
@@ -144,18 +147,41 @@ function mouseMoved() {
   // integration: http://www.generative-gestaltung.de/2/sketches/?01_P/P_3_0_01
   clear();
   textSize((mouseX - width / 2) * 5 + 1);
-  text(input_letter, width / 2, mouseY);
+  text('', width / 2, mouseY);
 }
 
 // mouseDragged() function is called every time the mouse is dragged
 function mouseDragged() {
   // code to run when mouse is dragged
   textSize((mouseX - width / 2) * 5 + 1);
-  text(input_letter, width / 2, mouseY);
+  text('', width / 2, mouseY);
 }
 
 // keyTyped() function is called once after every time a key is typed
 function keyTyped() {
   // code to run when key is typed
   input_text += key;
+}
+
+function drawText() {
+  strokeWeight(3)
+	let x = random(windowWidth),
+			y = random(windowHeight)
+	if (random() < 0.5) {
+    //green text
+    let myText = random(["🏔️", "🌈", "🌺", "🌲", "🌿", "🦋", "💧", "🦅", "🌍", "🌳", "🌸", "🌹"])
+		let w = textWidth(myText)
+		fill(14, 237, 74)
+		rect(x , y ,w+100,50,50)
+		textSize(30)
+		text(myText, x+50 , y+35)
+	}else{
+    //blue text
+		let myText = random(["🏔️", "🌈", "🌺", "🌲", "🌿", "🦋", "💧", "🦅", "🌍", "🌳", "🌸", "🌹"])
+		let w = textWidth(myText)
+		fill(34, 158, 230)
+		rect(x , y ,w+100,50,50)
+		textSize(30)
+		text(myText, x+50 , y+35)
+  }
 }
