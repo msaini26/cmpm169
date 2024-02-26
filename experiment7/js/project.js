@@ -7,6 +7,24 @@
 // Constants - User-servicable parts
 // In a longer project I like to put these in a separate file
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD_SLDBVqryosRgBM-Dxq1kjjjvo_CuFDQ",
+  authDomain: "snow-data-3f256.firebaseapp.com",
+  projectId: "snow-data-3f256",
+  storageBucket: "snow-data-3f256.appspot.com",
+  messagingSenderId: "764076002104",
+  appId: "1:764076002104:web:8350b3ae69188871818fcd"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 // define a class
 class MyProjectClass {
     // constructor function

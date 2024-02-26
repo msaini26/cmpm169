@@ -5,6 +5,8 @@
 // Here is how you might set up an OOP p5.js project
 // Note that p5.js looks for a file called sketch.js
 
+
+
 // Constants - User-servicable parts
 // In a longer project I like to put these in a separate file
 const VALUE1 = 1;
@@ -41,7 +43,7 @@ function preload() {
 }
 
 // data fields
-let longtitude;
+let longitude;
 let latitude;
 let elevation;
 let change_in_snow_depth;
@@ -65,7 +67,7 @@ function setup() {
 
   // acquire data points
   latitude = input_data.getColumn("latitude");
-  longtitude = input_data.getColumn("longtitude");
+  longitude = input_data.getColumn("longitude");
   elevation = input_data.getColumn("elevation");
   change_in_snow_depth = input_data.getColumn("slope_percentperyear");
 
@@ -82,8 +84,8 @@ function setup() {
     );
     let y = map(
       row.get("longitude"),
-      min(longtitude),
-      max(longtitude),
+      min(longitude),
+      max(longitude),
       10,
       height - 10
     );
@@ -179,3 +181,5 @@ class Spot {
     );
   }
 } // end of class
+
+
