@@ -62,6 +62,26 @@ function setup() {
 
   var centerHorz = windowWidth / 2;
   var centerVert = windowHeight / 2;
+
+  // acquire data points
+  latitude = input_data.getColumn("latitude");
+  longtitude = input_data.getColumn("longtitude");
+  elevation = input_data.getColumn("elevation");
+  change_in_snow_depth = input_data.getColumn("slope_percentperyear");
+
+  // iterate through the data rows
+  for (let row = 0; row < input_data.getRowCount(); row++) {
+    let data_row = input_data.getRow(row);
+    let x = map(data_row.get('latitude'), min(latitude), max(latitude), 10, width-10);
+    let y = map(data_row.get('longtitude'), min(longtitude), max(longtitude), 10, height-10);
+    let diameter = map(row.get('slope_percentperyear'), min(change_in_snow_depth), max(change_in_snow_depth), 3, 11);
+    let color = map(data_row.get('elevation'), min(elevation), max(elevation), 30, 255);
+
+    noFill();
+
+    // draw the data points
+    data_points.push(new DataPoint(x, y, diameter, color));
+  }
 }
 
 // draw() function is called repeatedly, it's the main animation loop
