@@ -32,66 +32,101 @@
         <div class="minor-section">
           <h2>Imitate</h2>
           <p>
-            To develop artistic creativity in coding, it can be helpful to start
-            by studying and learning from existing examples. This might involve
-            reviewing code written by others, analyzing successful techniques,
-            or even copying and modifying code to better understand how it
-            works. By imitating and learning from existing techniques and
-            strategies, we can gain a better understanding of what has been done
-            before and what is possible, and identify opportunities for
-            improvement and innovation.
-          </p>
-          <p>
-            What code did you start with? (You don't need to provide the code
-            itself, but where did you start?) Document this step briefly.
+            We chose to imitate a text based design art:
+            <a href="http://www.generative-gestaltung.de/2/sketches/?01_P/P_3_1_3_01">example</a>. 
+            The initial setup was fairly straightforward because the author of the original piece 
+            commented on a significant portion of their code. As a result, we were able to quickly
+            understand the functionality and integration of the code to create the text-based art piece.
+            At first, we were confused about how the opacity for each letter was created, but we quickly
+            realized that the frequency of the letter determined the opacity percentage. In the image above,
+            this was a point in which we were stuck while imitating the original art piece. The letters at
+            this point were stagnant, but we could not figure out why since the mouse should have affected
+            the orientation and position of the letters. After some time, we figured out that we never set
+            an x and y-position for where the letters should move relative to the mouse. We also never set
+            anything related to the mouse, so we realized there would be no interaction until we included a
+            ‘mouse pressed’ function or a similar option. 
           </p>
         </div>
 
         <div class="minor-section">
           <h2>Integrate</h2>
           <p>
-            After learning from existing techniques and strategies, we can build
-            upon that foundation by combining elements from different sources.
-            This might involve combining elements from different programming
-            languages, using libraries or frameworks in new ways, or bringing
-            together techniques from different fields or disciplines. By
-            integrating and combining elements from different sources, we can
-            create something new and unique.
-          </p>
-          <p>
-            How did you extend the code or combine with another technique to
-            make something new? Document this step.
+            For integration, we first started by replacing the original text with a poem about nature and the 
+            beauty of outdoor landscapes. We also wanted to integrate the following into our original art piece: 
+            <a href="http://www.generative-gestaltung.de/2/sketches/?01_P/P_3_0_01">example</a>. First, we 
+            integrated the dynamic scale-changing abilities into the original poem landscape, which we represented 
+            by a change in text scale with the ‘mouseDragged’ and ‘mouseMoved’ functions. We ran into a couple issues 
+            where the scale only affected a certain number of the letters, but we realized that our code structure
+            was too specific to groups of letters. As a result, we generalized our code to fit a larger collection 
+            of letters, which you can see in the result above. We also wanted to integrate the interactive elements 
+            from the integration sample we linked earlier. Therefore, we included an option for users to add more 
+            letters to the poem if they wanted to. The newly generated letters also follow the same interaction patterns 
+            as the original output: the scale changes and boldness of the letters themselves. We also created a new 
+            design for the letters where they are cleared and redrawn depending on the user’s mouse interaction with 
+            the art piece.
+
           </p>
         </div>
 
         <div class="minor-section">
           <h2>Innovate</h2>
           <p>
-            Finally, we can introduce new or original ideas to our coding
-            process by thinking creatively and pushing the boundaries. This
-            might involve developing entirely new techniques or approaches, or
-            using existing techniques in new and creative ways. By innovating
-            and introducing new ideas, we can create art that is truly
-            groundbreaking.
-          </p>
-          <p>
-            How did you use the code as a jumping off point to create something
-            truly unique and novel? Document this step thoroughly.
+            After implementing the poem, we thought it would be really cool to contrast the idea of nature and being 
+            outdoors with what our society has become today. We wanted to incorporate the aspect of how everyone is 
+            constantly on their phones these days and represent this through text messages. We found this really cool 
+            example that perfectly emulates what we envisioned: <a href="https://openprocessing.org/sketch/2182708">example</a>. 
+            We first changed all the written text into nature-based emojis to illustrate how instead of going outdoors to 
+            see nature, people would rather just spend time on their phones and look at images/other tech-related visualizations.
+            We then had some issues simulating the text effect that the example had because we weren't able to constantly
+            draw the messages on top of each other. This was due to the fact that the poem transitions/movement relies on 
+            the background being constantly redrawn. After a few tries, we figured out that we could utilize push and pop 
+            to change the frameRate for just the text message and display it on the screen for a few seconds so it is more 
+            readable and doesn't flash in a few seconds. We also decided to keep it as one message being displayed at a time
+            to get a better representation of how a chat between two people usually goes.
           </p>
         </div>
 
         <div class="minor-section">
           <h2>Reflection</h2>
           <p>
-            Each person that worked on the code should reflect on the process,
-            the difficulties, and the successes of the experiment. Here's where
-            you can put your reflections.
+            Mansi - I worked on the imitation stage, creating the dynamic text animation that changes based on the frequency 
+            of the letters. The higher the frequency of a letter, the higher the visibility with minimal transparency; the 
+            opposite is the case for less frequent letters. For the integration stage, I integrated the example with the 
+            letter scaling effects and dynamic changes. Instead of a single letter creating the dynamics, I integrated the 
+            mechanics into the current poem to include more interactive elements with the user’s input.
           </p>
-          <ul>
-            <li>What part of the project you contributed</li>
-            <li>A reflection on your work and the work of the team</li>
-            <li>Brief highs and lows</li>
-          </ul>
+          <p>
+            Rebecca - I mainly worked on innovate and this reflection. I combined the text messages with our poem and played around 
+            with how we wanted the messages to be presented/drawn. I messed around with what we wanted to display in the texts, 
+            keeping it as emojis or using text. We liked the contrast of words with images so we decided to go with emojis. I 
+            also randomized the different colored text, making it seem like a conversation between two people. I also messed a 
+            bit with figuring out how to draw the messages so that they were readable and would be drawn for longer than a 
+            millisecond.
+          </p>
+          <p>
+            We are proud of the final result of our projects and loved to see how the result progressed from the initial stages. 
+            Originally, we didn’t think much about where we wanted this text art to go. We first just added a poem that we 
+            both liked and wanted to see where it could take us. In the beginning, we mainly focused on messing around with 
+            just the poem and didn’t really consider what else we could add on top of it to send some kind of message. We 
+            really liked playing around with the size of each character and how they shift/move. After messing around with 
+            the poem, we then started to brainstorm some other ideas to make the poem even more interesting. We then remembered 
+            that there was an example during section of using emojis as text. We really liked this concept and decided to create 
+            something similar to this. We found an example that really matched the concept we were going for and that’s how we 
+            came up with text messages. This led to the idea of making a contrast between the nature based poem and a conversation 
+            through text messages. We really enjoyed how we were able to slowly branch off of ideas to create something deep and 
+            meaningful. We started off with just a poem and it turned into something much more unique and interesting. We worked 
+            well together as a team, leaning on each other for support when needed. Especially with pair programming, communication 
+            is absolutely essential, and we made sure to give each other regular updates on how our parts of the project were progressing. 
+          </p>
+          <p>
+            One high of this project was how seamless and clean our text output was during the integration stage. Sometimes with varying 
+            generative examples, the integration stage provides a messy output with complex bugs. We were lucky that we created a clean 
+            code structure from the beginning with spaces to integrate the second example. Another high was how we were able to create 
+            something that is unique and special. We really liked how the poem and text messages turned out and in a way, compliment each 
+            other really well. One low would be the errors we ran into during innovate. We bumped into the issue of needing to redraw the 
+            background for one example but not the other. Because of this, we had to reevaluate how we wanted to draw each element 
+            but in the end, we figured it out and it turned out really nice.
+          </p>
         </div>
 
         <div class="minor-section">
