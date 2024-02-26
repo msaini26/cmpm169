@@ -39,7 +39,8 @@ class MyClass {
 // preload() function is called to load text before program starts
 function preload() {
   // load text file
-  input_text = loadStrings("data/poem.txt");
+  input_text = loadStrings("data/1.txt");
+  console.log("testing: ", "data/" + String(random(1, 4)) + ".txt");
 }
 
 // setup() function is called once when the program starts
